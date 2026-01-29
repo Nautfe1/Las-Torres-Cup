@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Torres Cup 2026 - Torneo de Fútbol Sala en Tenerife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00A6A6;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --gradient: linear-gradient(135deg, #FF6B35 0%, #004E89 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Moderno */
+        header {
+            background-color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .header-scrolled {
+            padding: 5px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            background: var(--gradient);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.1;
+        }
+        
+        .logo-text span {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            background: var(--gradient);
+            color: white !important;
+            padding: 10px 25px !important;
+            border-radius: 50px;
+            transition: all 0.3s ease !important;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .nav-cta:after {
+            display: none;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)), 
+                        url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .hero h2 span {
+            background: linear-gradient(to right, #FF6B35, #FF9E6D);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            color: var(--dark);
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Secciones */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 5px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 30px auto 0;
+        }
+        
+        /* Introducción */
+        .intro-content {
+            background-color: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--gradient);
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        
+        .intro-highlight {
+            background: linear-gradient(120deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 78, 137, 0.1) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            margin: 30px 0;
+        }
+        
+        .organizadores {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .organizador {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .organizador-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        /* Anuncios */
+        .anuncios-container {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .anuncios-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .anuncios-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .anuncios-icon {
+            font-size: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .anuncios-list {
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .anuncio-placeholder {
+            padding: 50px 0;
+        }
+        
+        .anuncio-placeholder i {
+            font-size: 4rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .anuncio-placeholder h4 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        /* Normativa */
+        .normativa-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .normativa-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .normativa-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .normativa-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .normativa-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .normativa-card ul {
+            list-style: none;
+        }
+        
+        .normativa-card li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .normativa-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 78, 137, 0.1) 100%);
+            border: 2px solid var(--primary);
+        }
+        
+        /* Lugar */
+        .lugar-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .mapa-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 450px;
+        }
+        
+        .mapa-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .lugar-info {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .lugar-info h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .lugar-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .lugar-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .lugar-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        /* Información */
+        .info-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .premio-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 78, 137, 0.1) 100%);
+            border: 2px dashed var(--primary);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .premio-card h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .premio-amount {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin: 20px 0;
+        }
+        
+        /* Contacto */
+        .contacto-container {
+            background: var(--gradient);
+            color: white;
+            border-radius: 20px;
+            padding: 60px;
+            text-align: center;
+        }
+        
+        .contacto-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .contacto-container p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background-color: white;
+            color: #E1306C;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .instagram-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .instagram-btn i {
+            font-size: 1.8rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .footer-logo .logo-icon {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-disclaimer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .lugar-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 30px;
+                box-shadow: var(--shadow);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .intro-content, .anuncios-list, .lugar-info, .contacto-container {
+                padding: 30px;
+            }
+            
+            .organizador {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-cta, .instagram-btn {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .premio-amount {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">TC</div>
+                    <div class="logo-text">
+                        <h1>Las Torres Cup</h1>
+                        <span>Torneo de Fútbol Sala 2026</span>
+                    </div>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#introduccion">La Idea</a></li>
+                        <li><a href="#anuncios">Novedades</a></li>
+                        <li><a href="#normativa">Normativa</a></li>
+                        <li><a href="#lugar">Lugar</a></li>
+                        <li><a href="#informacion">Información</a></li>
+                        <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Primera Edición</div>
+                <h2>LAS TORRES <span>CUP 2026</span></h2>
+                <p>Un torneo hecho por y para gente que quiere jugar al fútbol, ganar algo de dinero y pasar un buen rato. Sin pretensiones, solo diversión.</p>
+                <a href="#contacto" class="hero-cta">
+                    <i class="fab fa-instagram"></i>
+                    Contactar por Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introducción -->
+    <section id="introduccion">
+        <div class="container">
+            <div class="section-title">
+                <h2>La Idea Real</h2>
+                <p>La verdad detrás de este torneo</p>
+            </div>
+            
+            <div class="intro-content">
+                <div class="intro-text">
+                    <p>Seamos sinceros: somos <strong>dos chicos normales</strong> a los que nos gusta el fútbol sala y queremos organizar algo entretenido. No tenemos conexiones con el ayuntamiento, no somos una organización deportiva profesional, y no pretendemos serlo.</p>
+                    
+                    <div class="intro-highlight">
+                        <p>La idea es simple: <strong>juntar a 20 equipos, jugar un buen torneo, pasar un fin de semana divertido y, si todo sale bien, ganar algo de dinero para nosotros también.</strong> Por eso cada jugador paga 4€, y por eso el premio al ganador es de 150€.</p>
+                    </div>
+                    
+                    <p>No vamos a fingir que esto es un evento super profesional. Es un torneo organizado por dos tipos que quieren divertirse organizando algo, ver buen fútbol sala, y si sale algo de beneficio, mejor que mejor. Si te apetece jugar en un ambiente relajado, sin presiones excesivas y con gente que está ahí por el mismo motivo (jugar y pasar el rato), este es tu torneo.</p>
+                    
+                    <p><strong>No hay fechas aún</strong> porque estamos viendo el interés que hay. Si se apunta suficiente gente, lo organizamos. Si no, no pasa nada. Así de simple.</p>
+                </div>
+                
+                <div class="organizadores">
+                    <div class="organizador">
+                        <div class="organizador-avatar">N</div>
+                        <div>
+                            <h4>Nauzet</h4>
+                            <p>Uno de los organizadores</p>
+                            <p>"Me gusta el fútbol y organizar cosas. Si sale bien, genial."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="organizador">
+                        <div class="organizador-avatar">R</div>
+                        <div>
+                            <h4>Roberto</h4>
+                            <p>El otro organizador</p>
+                            <p>"Si podemos jugar y ganar algo, ¿por qué no intentarlo?"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anuncios y Novedades -->
+    <section id="anuncios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Novedades</h2>
+                <p>Aquí iremos poniendo las actualizaciones</p>
+            </div>
+            
+            <div class="anuncios-container">
+                <div class="anuncios-header">
+                    <h3>Estado Actual</h3>
+                    <div class="anuncios-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                </div>
+                
+                <div class="anuncios-list">
+                    <div class="anuncio-placeholder">
+                        <i class="fas fa-clock"></i>
+                        <h4>En fase de planeamiento</h4>
+                        <p>Aún no hay novedades concretas. Estamos viendo si hay suficiente interés para organizar el torneo.</p>
+                        <p>Cuando tengamos más información (fechas, número de inscritos, etc.), lo publicaremos aquí.</p>
+                        <p style="margin-top: 20px; color: var(--primary); font-weight: 600;">¡Síguenos en Instagram para estar al día!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Normativa -->
+    <section id="normativa">
+        <div class="container">
+            <div class="section-title">
+                <h2>Normativa Básica</h2>
+                <p>Las reglas mínimas para que todo funcione bien</p>
+            </div>
+            
+            <div class="normativa-container">
+                <div class="normativa-card">
+                    <div class="normativa-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Inscripción y Equipos</h3>
+                    <ul>
+                        <li>20 equipos máximo</li>
+                        <li>5 jugadores en cancha + suplentes</li>
+                        <li>Mínimo 5 jugadores por equipo</li>
+                        <li>4€ por jugador (para organizar y premio)</li>
+                        <li>Un capitán por equipo</li>
+                    </ul>
+                </div>
+                
+                <div class="normativa-card">
+                    <div class="normativa-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Formato de Competición</h3>
+                    <ul>
+                        <li>4 grupos de 5 equipos</li>
+                        <li>Los 2 mejores pasan a cuartos</li>
+                        <li>Partidos: 2 tiempos de 20 min</li>
+                        <li>Victoria: 3 pts, Empate: 1 pt</li>
+                        <li>Desempate: prórroga y penaltis</li>
+                    </ul>
+                </div>
+                
+                <div class="normativa-card highlight-card">
+                    <div class="normativa-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Comportamiento</h3>
+                    <ul>
+                        <li>Nada de violencia (seriedad)</li>
+                        <li>Respeto básico a todos</li>
+                        <li>Tarjeta roja = expulsión</li>
+                        <li>Si hay pelea, equipo descalificado</li>
+                        <li>Estamos para divertirnos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lugar -->
+    <section id="lugar">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lugar</h2>
+                <p>Donde sería el torneo (si se organiza)</p>
+            </div>
+            
+            <div class="lugar-content">
+                <div class="mapa-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3520.870152306317!2d-16.2947725!3d28.4535565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cd3daefb26df%3A0x111f96b2c32500f1!2sCancha%20municipal%20polideportiva%20Las%20Torres%20de%20Taco!5e0!3m2!1ses!2ses!4v1692038412345!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <div class="lugar-info">
+                    <h3>Cancha Municipal Las Torres de Taco</h3>
+                    <p>Hemos elegido esta cancha porque está bien ubicada, es accesible y tiene buen ambiente. Si finalmente organizamos el torneo, sería aquí.</p>
+                    
+                    <div class="lugar-details">
+                        <div class="lugar-detail">
+                            <div class="lugar-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Ubicación</h4>
+                                <p>Las Torres de Taco, Tenerife</p>
+                            </div>
+                        </div>
+                        
+                        <div class="lugar-detail">
+                            <div class="lugar-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Fecha</h4>
+                                <p>Por determinar (depende del interés)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="lugar-detail">
+                            <div class="lugar-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Importante</h4>
+                                <p>Esto no está confirmado al 100%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información -->
+    <section id="informacion">
+        <div class="container">
+            <div class="section-title">
+                <h2>Información</h2>
+                <p>Los números del torneo</p>
+            </div>
+            
+            <div class="info-stats">
+                <div class="stat-card">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">Equipos máximo</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">4€</div>
+                    <div class="stat-label">Por jugador</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Jugadores mínimo</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">150€</div>
+                    <div class="stat-label">Premio al ganador</div>
+                </div>
+            </div>
+            
+            <div class="premio-card">
+                <h3>El Premio </h3>
+                <p>La verdad es que organizar esto da trabajo, así que si hay 20 equipos con 5 jugadores cada uno a 4€, son 400€. De ahí, 150€ para el equipo ganador.</p>
+                <div class="premio-amount">150€</div>
+                <p>Para el equipo campeón</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <div class="contacto-container">
+                <h2>¿Te interesa?</h2>
+                <p>Si te apetece jugar en un torneo sin pretensiones, donde lo importante es pasar un buen rato y jugar al fútbol, escríbenos por Instagram. Si vemos que hay interés suficiente (unos 10-15 equipos), lo organizamos.</p>
+                
+                <a href="https://instagram.com" target="_blank" class="instagram-btn">
+                    <i class="fab fa-instagram"></i>
+                    Hablar por Instagram
+                </a>
+                
+                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">Organizado por Nauzet y Roberto - Dos chicos que quieren organizar algo entretenido</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">TC</div>
+                    <h3>Las Torres Cup 2026</h3>
+                    <p>Un torneo honesto para gente que quiere jugar al fútbol</p>
+                    <p>Por y para jugadores normales</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#introduccion">La Idea</a></li>
+                        <li><a href="#anuncios">Novedades</a></li>
+                        <li><a href="#normativa">Normativa</a></li>
+                        <li><a href="#lugar">Lugar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Más</h4>
+                    <ul>
+                        <li><a href="#informacion">Información</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-disclaimer">
+                <p>Las Torres Cup 2026 es una idea de dos personas sin relación con instituciones oficiales. Si hay interés, se organiza. Si no, no.</p>
+                <p>© 2026 Las Torres Cup. Idea de Nauzet y Roberto.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        const header = document.getElementById('header');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efecto de aparición para elementos al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar animación a las tarjetas
+        document.querySelectorAll('.normativa-card, .stat-card, .organizador').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        // Mensaje de carga
+        console.log('Las Torres Cup 2026 - Página cargada. Idea en fase de evaluación.');
+    </script>
+</body>
+</html>
